@@ -21,10 +21,25 @@
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
+
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+
+  <div class="field">
+    <%= f.label :industry_id %><br />
+    <%= f.collection_select :industry_id, Industry.all.where(ancestry: nil).limit(14), :id, :name,{prompt: "選択してください"}, name: '',id: "Industry-form",selected:true,required:true %>
+          
+  </div>
+
+  <div class="field">
+    <%= f.label :occupation_id %><br />
+    <%= f.collection_select :occupation_id, Occupation.all.where(ancestry: nil).limit(15), :id, :name,{prompt: "選択してください"}, name: '',id: "Occupation-form",selected:true,required:true %>
+          
+  </div>
+
+
 
   <div class="actions">
     <%= f.submit "save" %>
