@@ -62,18 +62,21 @@ $(document).on('turbolinks:load', ()=> {
     })
     .done(function(data){ 
       $('#oc-form').remove();
-      console.log(data)
       function childrenselect(data) {
+      console.log(data)
       
       let opt1 = data.map(x=> `<option value="${x.id}">${x.name}</option>`)
         let opt = opt1.join('');
-        
+      
         let tako = `<option value="">選択してください</option>
         ${opt}`;
+       
         let h = `<select name="user[occupation_id]" id="oc-form" selected>${tako} </select>`; //colection_selectのとこ
         return h
       }
+      
       var html = childrenselect(data);
+      console.log(html)
       $('#OcId').append(html);
     })
     .fail(function(XMLHttpRequest, textStatus, errorThrown) {

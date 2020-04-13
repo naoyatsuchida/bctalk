@@ -5,7 +5,7 @@
 
   <div class="field">
     <%= f.label :nickname %><br />
-    <%= f.email_field :nickname, autofocus: true, autocomplete: "nickname" %>
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
   </div>
 
   <div class="field">
@@ -32,7 +32,7 @@
           
   </div>
  
-  <div class="OcId">
+  <div class="field" id="OcId">
     <p>職種</p>
     <%= f.collection_select :occupation_id, Occupation.all.where(ancestry: nil).limit(15), :id, :name,{prompt: "選択してください"}, name: '',id: "Occupation-form",selected:true,required:true %>
           
