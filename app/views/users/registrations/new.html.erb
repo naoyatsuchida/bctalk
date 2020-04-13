@@ -28,16 +28,16 @@
   </div>
 
   <div class="field">
-    <%= f.label :industry_id %><br />
+    <p id='formId'>業界</p>
     <%= f.collection_select :industry_id, Industry.all.where(ancestry: nil).limit(14), :id, :name,{prompt: "選択してください"}, name: '',id: "Industry-form",selected:true,required:true %>
           
   </div>
-
+<%# 
   <div class="field">
-    <%= f.label :occupation_id %><br />
+    <p>職種</p>
     <%= f.collection_select :occupation_id, Occupation.all.where(ancestry: nil).limit(15), :id, :name,{prompt: "選択してください"}, name: '',id: "Occupation-form",selected:true,required:true %>
           
-  </div>
+  </div> %>
 
 
 

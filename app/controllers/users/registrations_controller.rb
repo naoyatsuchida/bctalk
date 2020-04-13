@@ -59,4 +59,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def search
+    # indid = params[:parent_id]
+    respond_to do |format|
+      format.html
+      format.json do
+  
+        @children = Industry.find(params[:parent_id]).children
+    
+        #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
+      end
+    end
+  end
 end
