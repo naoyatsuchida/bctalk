@@ -5,7 +5,7 @@
 
   <div class="field">
     <%= f.label :nickname %><br />
-    <%= f.email_field :nickname, autofocus: true, autocomplete: "nickname" %>
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
   </div>
 
   <div class="field">
@@ -21,10 +21,24 @@
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
+
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+
+  <div class="field" id=InId> 業界
+    <%= f.collection_select :industry_id, Industry.all.where(ancestry: nil).limit(14), :id, :name,{prompt: "選択してください"}, name: '',id: "Industry-form",selected:true,required:true %>
+          
+  </div>
+ 
+  <div class="field" id="OcId">
+    <p>職種</p>
+    <%= f.collection_select :occupation_id, Occupation.all.where(ancestry: nil).limit(15), :id, :name,{prompt: "選択してください"}, name: '',id: "Occupation-form",selected:true,required:true %>
+          
+  </div> 
+
+
 
   <div class="actions">
     <%= f.submit "save" %>
