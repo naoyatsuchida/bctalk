@@ -3,7 +3,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   devise_scope :user do
-    get 'user/search', to: 'users/registrations#search'
+    get 'user/searchin', to: 'users/registrations#searchin'
+    get 'user/searchoc', to: 'users/registrations#searchoc'
   end
   root  'posts#index'
 end
