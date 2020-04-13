@@ -3,8 +3,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :nickname %><br />
+  <div class="field">ニックネーム<br>
     <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname",required: true %>
   </div>
 
@@ -27,13 +26,12 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" ,required: true%>
   </div>
 
-  <div class="field" id=InId> 業界
+  <div class="field" id=InId> 業界<br>
     <%= f.collection_select :industry_id, Industry.all.where(ancestry: nil).limit(14), :id, :name,{prompt: "選択してください"}, name: '',id: "Industry-form",selected:true,required:true %>
           
   </div>
  
-  <div class="field" id="OcId">
-    <p>職種</p>
+  <div class="field" id="OcId">職種<br>
     <%= f.collection_select :occupation_id, Occupation.all.where(ancestry: nil).limit(15), :id, :name,{prompt: "選択してください"}, name: '',id: "Occupation-form",selected:true,required:true %>
           
   </div> 

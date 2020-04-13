@@ -4,6 +4,7 @@ ja:
       models:
         user:
           attributes:
+            
             email:
               taken: "は既に使用されています。"
               blank: "が入力されていません。"
