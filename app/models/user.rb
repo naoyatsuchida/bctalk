@@ -7,6 +7,11 @@ class User < ApplicationRecord
           belongs_to :industry #ユーザーは一つの業界に所属している
           belongs_to :occupation #ユーザーは一つの業界に所属している
           has_many :posts
+          has_many :groups,through: :group_users
+          has_many :group_users
+          has_many :messages
+
+
        
           validates :email,:nickname,:industry_id,:occupation_id ,presence: true
           VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
