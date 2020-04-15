@@ -1,0 +1,36 @@
+$height: 80px;
+
+.header{
+  height: $height;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #383535;
+
+  &__title{
+    margin-left: 30px;
+    line-height: $height;
+    a{
+      text-decoration: none;
+      color: white;
+      font-size: 2.5em;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    } 
+  }
+  &__user{
+    line-height: $height;
+    &__info{
+      margin-right: 40px;
+      .name{
+        color: white;
+        margin-right: 10px;
+      }
+      a{
+        text-decoration: none;
+        color: white;
+        margin-right: 20px;
+        
+      }
+    }
+  }
+}
