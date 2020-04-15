@@ -1,33 +1,39 @@
-%h2 new account
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    ニックネーム
-    %br/
-    = f.text_field :nickname, autofocus: true, autocomplete: "nickname",required: true
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autocomplete: "email",required: true
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password" ,required: true
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password" ,required: true
-  #InId.field
-    業界
-    %br/
-    = f.collection_select :industry_id, Industry.all.where(ancestry: nil).limit(14), :id, :name,{prompt: "選択してください"}, name: '',id: "Industry-form",selected:true,required:true
-  #OcId.field
-    職種
-    %br/
-    = f.collection_select :occupation_id, Occupation.all.where(ancestry: nil).limit(15), :id, :name,{prompt: "選択してください"}, name: '',id: "Occupation-form",selected:true,required:true
-  .actions
-    = f.submit "save"
-= render "users/shared/links"
+=render partial: "posts/top_header"
+.signupwra
+  .title
+    .title__content
+      %p 誰にも話せないその悩み
+      %p &nbsp;&nbsp;貴方はもう病んでいる？
+  .form
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource ,class: 'error'
+      .form__field
+        ニックネーム
+        %br/
+        = f.text_field :nickname, autofocus: true, autocomplete: "nickname",required: true,class:'input'
+      .form__field
+        = f.label :email
+        %br/
+        = f.email_field :email, autocomplete: "email",required: true,class:'input'
+      .form__field
+        = f.label :password
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} 以上)
+        %br/
+        = f.password_field :password, autocomplete: "new-password" ,required: true,class:'input'
+      .form__field
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password" ,required: true,class:'input'
+      #InId.form__field
+        業界
+        %br/
+        = f.collection_select :industry_id, Industry.all.where(ancestry: nil).limit(14), :id, :name,{prompt: "選択してください"}, name: '',id: "Industry-form",selected:true,required:true
+      #OcId.form__field
+        職種
+        %br/
+        = f.collection_select :occupation_id, Occupation.all.where(ancestry: nil).limit(15), :id, :name,{prompt: "選択してください"}, name: '',id: "Occupation-form",selected:true,required:true
+      .actions
+        = f.submit "save",class:'save'
+      

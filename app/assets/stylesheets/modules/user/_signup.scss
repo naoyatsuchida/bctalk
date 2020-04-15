@@ -1,0 +1,80 @@
+@mixin category{ 
+  height: 30px;
+  width: 80%;
+  display: block;}
+
+
+.signupwra{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  .title{
+    background-image: url(asset_path("photo/yakei2.jpeg"));
+    background-size: cover;
+    width:70%;
+    height: 100vh;
+   
+ 
+    &__content{
+      color: white;
+      padding: 20px 0 0 40px;
+      font-size: 1.8em;
+    }
+  }
+  .form{
+        padding-top: 20px;
+        width: 30%;
+        background-color: black;
+        #error_explanation{
+          color: white;
+        }
+        #login{
+          color: white;
+          font-size: 1.5em;
+        }
+        &__field{
+          color: white;
+          margin-top: 10px;
+          
+        }
+        .input{
+          @include category();
+        }
+        
+        #Industry-form{
+          @include category();
+        }
+        #in-form{
+          
+          @include category();
+          margin-top: 10px;
+      
+        }
+        #Occupation-form{
+          @include category();
+        }
+        #oc-form{
+          @include category();
+          margin-top: 10px;
+          
+        }
+        .save{
+        background-color: #4a4646;
+        display: block;
+        border-radius: 10px;
+        height: 30px;
+        width: 80%;
+        margin-top: 30px;
+        border: 0.5px solid white;
+        color: white;
+        cursor: pointer;
+        &:hover{
+          background-color: whitesmoke;
+          color: black;
+        }
+
+        }
+
+
+      }
+}
