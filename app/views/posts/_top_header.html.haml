@@ -8,8 +8,7 @@
           = current_user.nickname
         = link_to user_path(current_user.id) do
           %i.fas.fa-bars.icon
-        = link_to destroy_user_session_path,method: :delete do
-          %i.fas.fa-sign-out-alt.icon
+       
     - else
       .header__user__info
         = link_to new_user_session_path do

@@ -1,16 +1,31 @@
 .side
   %ul.side__function
     %li.li_mypage
-      %label(for="list")
-        = link_to 'top', root_path ,class: "list",id:'list'
+     
+      = link_to root_path ,class: "list" do
+        %i.fas.fa-home.icon 
+        ="home"
     %li 
-      = link_to 'post', new_post_path,class: "list"
-    
-  %p 設定
-  %ul.side__acount 
+      = link_to new_post_path,class: "list" do
+        %i.fas.fa-pen-square.icon
+        = "post write"
     %li
-      = link_to '本人情報設定', edit_user_registration_path,class: "list"
+      = link_to "#", class: "list" do
+        %i.fas.fa-envelope.icon
+        ='message'
     %li
-      = link_to 'メッセージ', "#", class: "list"
+      = link_to  "#", class: "list" do
+        %i.fas.fa-object-group.icon
+        ='group'
     %li
-      = link_to "ログアウト",destroy_user_session_path,method: :delete,class: "list"
+      = link_to "#", class: "list" do
+        %i.fas.fa-search-plus.icon
+        ='search'
+    %li
+      = link_to  edit_user_registration_path,class: "list" do
+        %i.fas.fa-user-edit.icon
+        = 'edit acount'
+    %li
+      =link_to destroy_user_session_path,method: :delete,class: "list" do
+        %i.fas.fa-sign-out-alt.icon
+        = 'Log out'

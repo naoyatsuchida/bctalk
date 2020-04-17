@@ -6,10 +6,17 @@ $takasa:45px;
     border-bottom:2px solid #f5f5f5;
     cursor: pointer;
     transition: transform 0.5s;
+    .icon{
+      margin-right: 10px;
+    }
     &:hover {
       background-color: #fafafa;
       text-decoration: none;
       transform: translate(5px);
+      .icon{
+      color: #adadad;
+      }
+      
     }
     .list{
       color: black;
@@ -26,6 +33,10 @@ $takasa:45px;
   background-color: #f5f5f5;
   height: 100vh;
   padding-top: 20px;
+  .bctalk{
+    width: 50px;
+    height: 100%;
+  }
   &__wrraper {
     margin: 20px auto;
     width: 80%;
@@ -61,7 +72,7 @@ $takasa:45px;
         width: 100%;
         background-color: white;
         button{
-          width: 50%;
+          width: 100%;
           border-style: none;
           display: block;
           height: 50px;
