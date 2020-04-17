@@ -6,7 +6,7 @@
       .header__user__info 
         %span.name
           = current_user.nickname
-        = link_to "#" do
+        = link_to user_path(current_user.id) do
           %i.fas.fa-bars.icon
         = link_to destroy_user_session_path,method: :delete do
           %i.fas.fa-sign-out-alt.icon

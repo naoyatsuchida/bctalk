@@ -1,0 +1,16 @@
+.side
+  %ul.side__function
+    %li.li_mypage
+      %label(for="list")
+        = link_to 'top', root_path ,class: "list",id:'list'
+    %li 
+      = link_to 'post', new_post_path,class: "list"
+    
+  %p 設定
+  %ul.side__acount 
+    %li
+      = link_to '本人情報設定', edit_user_registration_path,class: "list"
+    %li
+      = link_to 'メッセージ', "#", class: "list"
+    %li
+      = link_to "ログアウト",destroy_user_session_path,method: :delete,class: "list"

@@ -1,0 +1,26 @@
+.mypage
+  .mypage__wrraper
+    = render partial: 'side'
+    .main
+      .main__top
+        -# = image_tag asset_path('logo/logo.png'), class: 'main__top__image'
+        .main__top__name
+          %span 
+            =current_user.nickname
+        .main__top__sell
+          %span 
+      .main__button
+        %button 
+          %span 記事リスト
+      .main__list
+        -@posts.each do |post|
+          =link_to post_path(post.id), class:'list' do
+            = image_tag asset_path(post.images[0].src),class: 'list__image'
+            %ul.list__product
+              %li.list__product__title
+                %span
+                  =post.title 
+              %li.list__product__content
+                %span
+                  =post.content
+        = link_to 'more post',"#",class:'link'
