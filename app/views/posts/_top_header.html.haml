@@ -7,12 +7,12 @@
         %span.name
           = current_user.nickname
         = link_to "#" do
-          %i.fas.fa-bars
+          %i.fas.fa-bars.icon
         = link_to destroy_user_session_path,method: :delete do
-          %i.fas.fa-sign-out-alt
+          %i.fas.fa-sign-out-alt.icon
     - else
       .header__user__info
         = link_to new_user_session_path do
-          %i.fas.fa-sign-in-alt
+          %i.fas.fa-sign-in-alt.icon
         = link_to new_user_registration_path do
-          %i.fas.fa-user-plus
+          %i.fas.fa-user-plus.icon

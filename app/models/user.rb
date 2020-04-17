@@ -10,11 +10,8 @@ class User < ApplicationRecord
           has_many :groups,through: :group_users
           has_many :group_users
           has_many :messages
-
-
-       
+          
           validates :email,:nickname,:industry_id,:occupation_id ,presence: true
           VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-          validates :email, uniqueness: true,format: { with: VALID_EMAIL_REGEX }
-          validates :password,:password_confirmation, length:{minimum:6}         
+          validates :email, uniqueness: true,format: { with: VALID_EMAIL_REGEX }       
 end
