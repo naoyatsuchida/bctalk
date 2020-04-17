@@ -1,0 +1,84 @@
+$fontcolor: white;
+
+
+.editwra{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  padding-top: 40px;
+  .form{
+    width: 60%;
+    height: 80%;
+    position: relative;
+    margin: 0 auto;
+    padding: 10px 15px;
+    opacity: 0.5;
+    background-color: rgb(109, 109, 109);
+    border-radius: 20px;
+    
+    h2{
+      font-size: 1.4em;
+      margin: 0 auto;
+      width: 200px;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: $fontcolor;
+    }
+    &__box{
+
+      &__nickname{
+        display: block;
+        font-size: 1.5em;
+        margin: 10px 0 10px 0;
+        .form-control{
+          width: 80%;
+        }
+        .required{
+          margin-right: 10px;
+          color:  $fontcolor;
+        }
+        
+      }
+      &__image{
+        display: block;
+        font-size: 1.5em;
+        margin: 10px 0 10px 0;
+        label{
+          color: $fontcolor;
+        }
+        .custom-file-label{
+          display: none;
+        }
+        
+      }
+      &__profile{
+        display: block;
+        height: 200px;
+        
+        margin: 10px 0 10px 0;
+        color: $fontcolor;
+        label{
+          display: block;
+          font-size: 1.5em;
+        }
+        .form-control{
+          width: 90%;
+          height: 100%;
+          resize: none;
+          padding: 5px;
+          display: block;
+        }
+        
+      }
+      .update{
+        width: 90%;
+        display: block;
+        height: 30px;
+        margin: 0 auto;
+        bottom: 10px;
+        position: absolute;
+      }
+    }
+    }
+    
+  }

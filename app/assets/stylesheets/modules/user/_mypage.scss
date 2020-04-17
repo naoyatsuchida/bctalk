@@ -31,23 +31,23 @@ $takasa:45px;
 
 .mypage{
   background-color: #f5f5f5;
-  height: 100vh;
-  padding-top: 20px;
+  height: 100%;
+  display: flex;
   .bctalk{
     width: 50px;
     height: 100%;
   }
   &__wrraper {
+    padding-top: 20px;
     margin: 20px auto;
     width: 80%;
-    display: flex;
     
     .main{
       width: 800px;
       &__top{
         background-color: #3CCACE;
         padding-top: 40px;
-        height: 170px;
+        height: 370px;
         &__image{
           width: 80px;
           height: 80px;
@@ -84,7 +84,7 @@ $takasa:45px;
 
       }
       &__list{
-        height: 500px;
+        height: 400px;
         background-color: white;
         overflow: scroll;
         .list{
@@ -93,6 +93,7 @@ $takasa:45px;
           border-bottom: 1px solid #f5f5f5;
           text-decoration: none;
           color: black;
+          position: relative;
           &:hover{
             background-color: rgb(247, 247, 247);
           }
@@ -107,6 +108,17 @@ $takasa:45px;
             width: 100%;
             &__title{
               padding: 2px;
+              span{
+                &:nth-child(2){
+                  font-size: 0.7em;
+                  color: #adadad;
+                }
+                &:nth-child(3){
+                  font-size: 0.7em;
+                  color: #adadad;
+                }
+
+              }
             }
             &__content{
               font-size: 0.8em;
@@ -125,6 +137,11 @@ $takasa:45px;
           text-decoration: none;
           color: gray;
           cursor: pointer;
+          .more{
+            position: absolute;
+            bottom: 20px;
+            position: fixed;
+          }
           &:hover{
             background-color: #fafafa;
             color: black;

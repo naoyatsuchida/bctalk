@@ -1,1 +1,6 @@
 .new_post
+  = bootstrap_form_with(model: @post, local: true) do |f|
+    =f.text_field :title,hide_label: true, placeholder: "タイトル",wrapper: { class: 'additional-class' }
+    =f.file_field :images,hide_label: true, placeholder: "画像",wrapper: { class: 'additional-class' }
+    =f.text_area :content,hide_label: true, placeholder: "本文",wrapper: { class: 'additional-class' }
+    =f.primary 
