@@ -3,12 +3,16 @@
   .mypage__wrraper
     .main
       .main__top
-        -# = image_tag asset_path('logo/logo.png'), class: 'main__top__image'
+        - if @user.image?
+          = image_tag asset_path(@user.image.url), class: 'main__top__image'
+        - else 
+          = image_tag asset_path("log/bctalk.png"), class: 'main__top__image'
         .main__top__name
           %span 
             =current_user.nickname
-        .main__top__sell
+        .main__top__profile
           %span 
+            =current_user.profile
       .main__button
         %button 
           %span 記事リスト
@@ -30,4 +34,3 @@
               %li.list__product__content
                 %span
                   =post.content
-        = link_to 'more post',"#",class:'link more'

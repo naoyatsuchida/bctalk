@@ -1,8 +1,9 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "rails_bootstrap_forms";
 @import "reset";
 @import "modules/post/header";
+@import "modules/post/new";
 @import "modules/user/signup";
 @import "modules/user/mypage";
 @import "modules/user/edit";
-@import "rails_bootstrap_forms";
