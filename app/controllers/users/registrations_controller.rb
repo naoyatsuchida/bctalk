@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
@@ -15,14 +15,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    
+    super
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+
+    super
+  end
 
   # DELETE /resource
   # def destroy
@@ -78,5 +80,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
         #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
       end
     end
+  end
+
+  private
+
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,:industry_id,:occupation_id,:image,:profile])
+  end
+
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname,:image,:profile])
+  end
+
+  protected 
+  def update_resource(resource, params)
+    resource.update_without_password(params)
   end
 end

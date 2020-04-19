@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     get 'user/searchin', to: 'users/registrations#searchin'
     get 'user/searchoc', to: 'users/registrations#searchoc'
   end
+  get   '/users/sign_up' => 'users/registrations#new',as: :signup #ログインしてなかったらこのページに飛ぶ
   
-  get   '/users/sign_up' => 'users/registrations#new',as: :signup
-  
-  root  'posts#index'
+  root  'posts#index' 
   resources :posts
+  resources :user, only:[:show,:edit]
 end

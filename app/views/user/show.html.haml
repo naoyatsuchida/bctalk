@@ -1,0 +1,52 @@
+.mypage
+  = render partial: 'side'
+  .mypage__wrraper
+    .main
+      .main__top
+        .main__top__header
+          - if @user.image?
+            = image_tag asset_path(@user.image.url), class: 'main__top__header__image'
+          - else 
+            = image_tag asset_path("log/bctalk.png"), class: 'main__top__header__image'
+      
+
+          .main__top__header__name
+            %p
+              =current_user.nickname
+              %br/
+            %span 
+              所属業界
+              =current_user.industry.name
+              %br/
+            %span 
+              職種
+              =current_user.occupation.name
+
+            .follow
+              =link_to "following","#"
+              =link_to "followers","#"
+
+        .main__top__profile 
+          %span
+            =current_user.profile
+      .main__button
+        %button 
+          %span 記事リスト
+      .main__list
+        -@posts.each do |post|
+          =link_to post_path(post.id), class:'list' do
+            -if post.images.empty?
+              = image_tag asset_path("log/bctalk.png"),class: 'list__image'
+            -else
+              = image_tag asset_path(post.images[0].src),class: 'list__image'
+            %ul.list__product
+              %li.list__product__title
+                %span
+                  =post.title 
+                %span 
+                  =post.user.industry.name
+                %span 
+                  =post.user.occupation.name
+              %li.list__product__content
+                %span
+                  =post.content
