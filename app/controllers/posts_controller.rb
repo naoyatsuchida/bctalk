@@ -6,7 +6,10 @@ before_action :set_post, only:[:new]
   end
 
   def new 
-    
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   def create 
