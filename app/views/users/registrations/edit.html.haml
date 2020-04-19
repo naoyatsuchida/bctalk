@@ -3,13 +3,23 @@
   .form
     %h2
       account edit
-    = bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-      .form__box
-        = f.text_field :nickname,wrapper: { class: 'form__box__nickname' }
+    .form__box
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        .form__box__top
+          .title
+            =f.label :nickname
+            %br/
+            = f.text_field :nickname
+          .submit
+            =f.label :edit_submit do
+              %i.fas.fa-user-edit.icon
+              = f.submit 'update',id:"user_edit_submit"
+        .form__box__body
+          =f.label :images,"image" do
+            %i.fa.fa-image.icon
+            = f.file_field :image,id:'user_image'
+          
 
-        = f.file_field :image,wrapper: { class: 'form__box__image' }
+          = f.text_area :profile,class: 'form__box__body__profile' 
 
-        = f.text_area :profile, label:"profile",wrapper: { class: 'form__box__profile' }
-
-        = f.submit 'update',class:'update'
 
