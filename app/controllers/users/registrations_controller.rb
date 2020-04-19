@@ -16,12 +16,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
+    
     super
   end
 
   # PUT /resource
   def update
-  
+
     super
   end
 
@@ -84,11 +85,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,:industry_id,:occupation_id,:iamge,:profile])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,:industry_id,:occupation_id,:image,:profile])
   end
 
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname,:iamge,:profile])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname,:image,:profile])
   end
 
   protected 

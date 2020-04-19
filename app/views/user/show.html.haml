@@ -3,15 +3,31 @@
   .mypage__wrraper
     .main
       .main__top
-        - if @user.image?
-          = image_tag asset_path(@user.image.url), class: 'main__top__image'
-        - else 
-          = image_tag asset_path("log/bctalk.png"), class: 'main__top__image'
-        .main__top__name
-          %span 
-            =current_user.nickname
-        .main__top__profile
-          %span 
+        .main__top__header
+          - if @user.image?
+            = image_tag asset_path(@user.image.url), class: 'main__top__header__image'
+          - else 
+            = image_tag asset_path("log/bctalk.png"), class: 'main__top__header__image'
+      
+
+          .main__top__header__name
+            %p
+              =current_user.nickname
+              %br/
+            %span 
+              所属業界
+              =current_user.industry.name
+              %br/
+            %span 
+              職種
+              =current_user.occupation.name
+
+            .follow
+              =link_to "following","#"
+              =link_to "followers","#"
+
+        .main__top__profile 
+          %span
             =current_user.profile
       .main__button
         %button 
