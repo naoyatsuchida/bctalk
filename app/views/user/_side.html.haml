@@ -22,9 +22,14 @@
         %i.fas.fa-search-plus.icon
         ='search'
     %li
+      = link_to  user_path(current_user.id),class: "list" do
+        %i.fas.fa-bars.icon
+        = 'mypage'
+    %li
       = link_to  edit_user_registration_path,class: "list" do
         %i.fas.fa-user-edit.icon
         = 'edit acount'
+      
     %li
       =link_to destroy_user_session_path,method: :delete,class: "list" do
         %i.fas.fa-sign-out-alt.icon
