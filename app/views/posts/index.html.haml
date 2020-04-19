@@ -1,5 +1,4 @@
+.indexwrap
+  = render partial: 'user/side'
 
-= render partial: 'user/side'
--# = link_to 'new account',new_user_registration_path
--# = link_to 'logout',destroy_user_session_path, method: :delete
--# = react_component 'Post'
+  = react_component 'Post', posts:@posts

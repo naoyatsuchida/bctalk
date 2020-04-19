@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 before_action :set_post, only:[:new]
   def index
+    @posts = Post.all.includes(:user)
     
   end
 
