@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
 before_action :set_post, only:[:new]
   def index
-    @posts = Post.all.includes(:user)
-    
+    posts = Post.all.includes(:user)
+    @first_post = posts.first
+    @other_post = posts
+ 
   end
 
   def new 

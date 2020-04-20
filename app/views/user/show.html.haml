@@ -28,7 +28,18 @@
 
         .main__top__profile 
           %span
-            =current_user.profile
+            -if current_user.profile.empty?
+              ="プロフィールを入力してください"
+              %br/
+              ="このアプリは友人や家族など近い故に吐き出すことができない"
+              %br/
+              ="自分の弱さ、他人にだから話せるような"
+              %br/
+              = "会社や上司からの不条理、業界のふまんなどを記事にして"
+              %br/
+              ="他者と共有する場所です"
+            -else
+              =current_user.profile
       .main__button
         %button 
           %span 記事リスト
