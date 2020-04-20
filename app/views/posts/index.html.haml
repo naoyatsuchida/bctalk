@@ -2,6 +2,7 @@
   = render partial: 'user/side'
   .contents
     .post
+
       .post__title
         %span あなたが辛いのはあなたが悪いわけじゃない
       %hr/
@@ -23,7 +24,7 @@
       
       %hr/
       .post__contents
-        - @other_post.each do |post|
+        - @posts.each do |post|
           .post__contents__article
             -if post.images.empty?
               = image_tag asset_path("log/bctalk.png"),class: 'post__contents__article__image'
@@ -37,3 +38,6 @@
                 =post.user.industry.name
               %span 
                 =post.user.occupation.name
+    = paginate @posts
+    
+  

@@ -62,4 +62,22 @@
 
 
   }
+  .pagination{
+    padding-bottom: 50px;
+    display: flex;
+    width: 300px;
+    margin: 0 auto;
+    li{
+      background-color:#808080 ;
+      opacity: 0.8;
+      margin-right: 10px;
+      padding: 0 10px;
+      color: white;
+
+      a{
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
 }
