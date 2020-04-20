@@ -1,11 +1,16 @@
 class PostsController < ApplicationController
 before_action :set_post, only:[:new]
   def index
-    
+    @posts = Post.page(params[:page]).per(6).includes(:user)
+    @first_post = @posts.first
+ 
   end
 
   def new 
-    
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   def create 

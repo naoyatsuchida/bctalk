@@ -1,5 +1,43 @@
+.indexwrap
+  = render partial: 'user/side'
+  .contents
+    .post
 
-= render partial: 'user/side'
--# = link_to 'new account',new_user_registration_path
--# = link_to 'logout',destroy_user_session_path, method: :delete
--# = react_component 'Post'
+      .post__title
+        %span あなたが辛いのはあなたが悪いわけじゃない
+      %hr/
+      .post__top
+        .post__top__nav
+          %p.post__top__nav__title
+            =@first_post.title
+          %p.post__top__nav__body
+            =@first_post.content
+          %p.post__top__nav__user
+            =@first_post.user.nickname
+            =@first_post.user.industry.name
+            =@first_post.user.occupation.name
+        - unless @first_post.images
+          = image_tag asset_path(@first_post.images.src),class:'post__top__image'
+        - else 
+          = image_tag asset_path("log/bctalk.png"), class: 'post__top__image'
+          
+      
+      %hr/
+      .post__contents
+        - @posts.each do |post|
+          .post__contents__article
+            -if post.images.empty?
+              = image_tag asset_path("log/bctalk.png"),class: 'post__contents__article__image'
+            -else
+              = image_tag asset_path(post.images[0].src),class: 'post__contents__article__image'
+            
+            %p.post__contents__article__body 
+              =post.content
+            %p.post__contents__article__user
+              %span 
+                =post.user.industry.name
+              %span 
+                =post.user.occupation.name
+    = paginate @posts
+    
+  

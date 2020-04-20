@@ -1,0 +1,83 @@
+.indexwrap{
+  display: flex;
+  width: 100%;
+
+  .contents{
+    width: 80%;
+    hr{
+      opacity: 0.8;
+    }
+    .post{
+      width: 90%;
+      margin: 0 auto;
+      padding-top: 40px;
+      &__title{
+      color: #808080;
+      font-size: 1.2em;
+      padding-left: 10px;
+      }
+
+      &__top{
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        &__nav{
+          position: relative;
+          padding: 10px;
+          &__title{
+            font-size: 1.3em;
+            color: #808080;
+          }
+          &__body{
+            font-size: 0.9em;
+            margin-top: 20px;
+            overflow: hidden;
+          }
+          &__user{
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.8em;
+          }
+        }
+        &__image{
+          height: 90%;
+          width: 30%;
+        }
+      }
+
+      &__contents{
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: space-between;
+        &__article{
+          width: 30%;
+          margin-bottom: 15px;
+          &__image{
+            width: 100%;
+          }
+        }
+      }
+
+    }
+
+
+  }
+  .pagination{
+    padding-bottom: 50px;
+    display: flex;
+    width: 300px;
+    margin: 0 auto;
+    li{
+      background-color:#808080 ;
+      opacity: 0.8;
+      margin-right: 10px;
+      padding: 0 10px;
+      color: white;
+
+      a{
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}

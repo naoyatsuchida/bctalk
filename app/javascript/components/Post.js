@@ -1,11 +1,14 @@
-import React from "react"
+import React,{useState,useEffect} from "react";
 
-const Post =()=>{
+const Memo =()=>{
+  
+  
   return(
     <>
-    つながった
+  
+
     </>
   )
 }
 
-export default Post
+export default Memo
