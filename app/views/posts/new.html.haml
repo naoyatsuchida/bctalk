@@ -9,10 +9,36 @@
           =f.label :submit do
             %i.fas.fa-pencil-alt.icon
             =f.submit "毒を吐く",id:"post_submit"
-      
-      =f.label :images,"image" do
-        %i.fa.fa-image.icon
-        =f.fields_for :images do |i|
-          =i.file_field :src,class: 'image_icon',id:"post_images"
+
+      #image-box
+        #previews
+          - if @post.persisted?
+            - @post.images.each_with_index do |image, i|
+              = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+
+        = f.fields_for :images do |image|
+          .js-file_group{"data-index" => "#{image.index}"}
+            %label.label{for: "js-file"}
+              %i.fa.fa-image.icon
+              = image.file_field :src, class: 'js-file',id: 'js-file'
+            .js-remove 削除
+          - if @post.persisted?
+            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+            
+        - if @post.persisted?
+          .js-file_group{"data-index" => "#{@post.images.count}"}
+            %label.label{for: "js-file"}
+              = f.file_field :src, class: 'js-file',id: 'js-file'
+              %i.ffa.fa-image
+            .js-remove 削除
+      -# .new_post__image
+      -#   .new_post__image__box
+      -#     =f.fields_for :images do |i|
+      -#       .image_icon{"data-index" => "#{i.index}"}
+      -#         =f.label :images,"image" do
+      -#           %i.fa.fa-image.icon
+      -#           =i.file_field :src,id:"post_images",class:'js-file'
+      -#           %span{class:"js-remove"} 削除
+        
       
       =f.text_area :content, placeholder: "理不尽な体験、一人で抱え込まずシェアしよう",class: 'new_post__content' 

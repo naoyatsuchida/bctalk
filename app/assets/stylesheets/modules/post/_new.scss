@@ -41,13 +41,38 @@
 
 
     }
-    .icon{
-      font-size: 1.8em;
-      cursor: pointer;
-    }
-    .image_icon{
-      visibility: hidden;
+    #image-box{
       
+      #previews{
+
+      }
+
+      .js-file_group{
+       
+        .label{
+          .icon{
+            font-size: 1.8em;
+          }
+          
+          .js-file{
+            
+            display: none;
+          }
+         
+        }
+        .js-remove{
+
+        }
+      }
+      .js-file_group{
+        .label{
+
+        }
+        .js-remove{
+
+        }
+      }
+
     }
 
     &__content{
