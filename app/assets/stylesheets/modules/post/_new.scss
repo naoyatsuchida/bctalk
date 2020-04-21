@@ -41,21 +41,35 @@
 
 
     }
-    &__image{
-  
-      &__box{
-        .image_icon{
-        
-            display: block;
-            .icon{
-              font-size: 1.8em;
-              cursor: pointer;
-            }
-            .js-file{
-              // display: none;
-              
-  
+    #image-box{
+      
+      #previews{
+
+      }
+
+      .js-file_group{
+       
+        .label{
+          .icon{
+            font-size: 1.8em;
           }
+          
+          .js-file{
+            
+            display: none;
+          }
+         
+        }
+        .js-remove{
+
+        }
+      }
+      .js-file_group{
+        .label{
+
+        }
+        .js-remove{
+
         }
       }
 
