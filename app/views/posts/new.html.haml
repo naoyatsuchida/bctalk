@@ -1,5 +1,6 @@
 .postwrap
   = render partial: 'user/side'
+
   .new_post
     = form_with(model: @post, local: true) do |f|
       .new_post__top
@@ -11,7 +12,7 @@
       
       =f.label :images,"image" do
         %i.fa.fa-image.icon
-        =f.file_field :images,class: 'image_icon' 
-
+        =f.fields_for :images do |i|
+          =i.file_field :src,class: 'image_icon',id:"post_images"
       
       =f.text_area :content, placeholder: "理不尽な体験、一人で抱え込まずシェアしよう",class: 'new_post__content' 

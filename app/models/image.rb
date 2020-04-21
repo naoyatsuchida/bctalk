@@ -1,5 +1,6 @@
 class Image < ApplicationRecord
-  belongs_to :post
-  belongs_to :message
+  belongs_to :post, optional: true
+  belongs_to :message,optional: true
+  mount_uploader :src, ImageUploader
 
 end

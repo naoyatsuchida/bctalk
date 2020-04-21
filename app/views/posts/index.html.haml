@@ -16,8 +16,8 @@
             =@first_post.user.nickname
             =@first_post.user.industry.name
             =@first_post.user.occupation.name
-        - unless @first_post.images
-          = image_tag asset_path(@first_post.images.src),class:'post__top__image'
+        - unless @first_post.images.empty?
+          = image_tag asset_path(@first_post.images[0].src),class:'post__top__image'
         - else 
           = image_tag asset_path("log/bctalk.png"), class: 'post__top__image'
           
