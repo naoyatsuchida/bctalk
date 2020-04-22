@@ -1,2 +1,4 @@
-詳細ページ
-=@post.name
+.post_show
+  =render partial: 'user/side'
+  %span
+  = markdown(@post.content)
