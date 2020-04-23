@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-before_action :set_post, only:[:update,:show,:edit]
+before_action :set_post, only:[:update,:show,:edit,:destroy]
   def index
     @posts = Post.page(params[:page]).order('created_at DESC').per(6).includes(:user,:images)
     @first_post = @posts.first
@@ -15,6 +15,20 @@ before_action :set_post, only:[:update,:show,:edit]
  
   end
 
+  def destroy
+    if @post.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
+
+
+
+  def edit 
+    render :new
+  end
+
   def create 
     post = Post.new(strong_param)
     if post.save!
@@ -26,7 +40,7 @@ before_action :set_post, only:[:update,:show,:edit]
 
   def update
 
-    if @product.update(product_params)
+    if @post.update(strong_param)
       redirect_to root_path
     else
       render :edit

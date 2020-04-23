@@ -112,6 +112,7 @@ $takasa:45px;
           text-decoration: none;
           color: black;
           position: relative;
+          overflow: hidden;
           &:hover{
             background-color: rgb(247, 247, 247);
           }
@@ -125,7 +126,7 @@ $takasa:45px;
           &__product{
             width: 100%;
             &__title{
-              padding: 2px;
+              padding: 5px;
               span{
                 &:nth-child(2){
                   font-size: 0.7em;
@@ -140,18 +141,15 @@ $takasa:45px;
             }
             &__content{
               font-size: 0.8em;
+              p{
+                padding-bottom:4px;
+
+              }
             }
-          }
-        }
-        
-      }
-        
-    }
-  }
-}
+          }}}}}}
 .side{
   width: 250px;
-  margin-right: 30px;
+  margin-right: 5px;
   &__function{
     margin-bottom: 40px;
     .li_mypage{

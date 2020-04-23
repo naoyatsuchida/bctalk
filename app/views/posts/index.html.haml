@@ -8,11 +8,11 @@
       %hr/
       .post__top
         .post__top__nav
-          %p.post__top__nav__title
+          =link_to post_path(@first_post.id),class:'post__top__nav__title' do
             =@first_post.title
-          %p.post__top__nav__body
-            =@first_post.content
-          %p.post__top__nav__user
+          .post__top__nav__body
+            = markdown(@first_post.content).html_safe
+          .post__top__nav__user
             =@first_post.user.nickname
             =@first_post.user.industry.name
             =@first_post.user.occupation.name
@@ -26,14 +26,16 @@
       .post__contents
         - @posts.each do |post|
           .post__contents__article
-            -if post.images.empty?
-              = image_tag asset_path("log/bctalk.png"),class: 'post__contents__article__image'
-            -else
-              = image_tag asset_path(post.images[0].src),class: 'post__contents__article__image'
+            =link_to post_path(post.id)  do
+              -if post.images.empty?
+                = image_tag asset_path("log/bctalk.png"),class: 'post__contents__article__image'
+              -else
+                = image_tag asset_path(post.images[0].src),class: 'post__contents__article__image'
             
-            %p.post__contents__article__body 
-              =post.content
-            %p.post__contents__article__user
+            .post__contents__article__body 
+              
+              = post.title
+            .post__contents__article__user
               %span 
                 =post.user.industry.name
               %span 
