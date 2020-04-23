@@ -1,2 +1,51 @@
-詳細ページ
-=@post.name
+.post_show
+  =render partial: 'user/side'
+  .show
+    .show_head
+      .show_head__profile
+        -if @post.user.image?
+          = image_tag asset_path(@post.user.image.url), class: 'show_head__profile__image'
+        - else 
+          = image_tag asset_path("log/bctalk.png"), class: 'show_head__profile__image'
+        .show_head__profile__nickname
+          =@post.user.nickname
+      .show_head__right
+        .show_head__right__title
+          =@post.title
+        .show_head__right__data
+          .show_head__right__data__right
+            ="黒いいね数"
+            %i.fas.fa-tired.bad
+          .show_head__right__data__left
+            ="所属業界 : #{@post.user.industry.name}"
+            %br/
+            ="業種 : #{@post.user.occupation.name}"
+
+
+    .show_content
+      = markdown(@post.content).html_safe
+
+
+    -if current_user.id == @post.user.id 
+      .show_form
+        .show_form__edit
+          =link_to edit_post_path(@post.id) do
+            %i.fas.fa-edit.icon
+        .show_form__delete
+          =link_to post_path(@post.id) ,method: :delete do
+            %i.fas.fa-trash.icon
+    -else
+      .show_bottom
+        .show_bottom__left
+          .show_bottom__left__follow
+            ="フォローする"
+          .show_bottom__left__iine
+            ="黒いいね"
+        .show_bottom__input
+          = form_with() do |f|
+            = f.text_area :content, placeholder: "comment",class: "show_bottom__input__form" 
+            =f.label :submit do
+              %i.fas.fa-pencil-alt.icon
+              =f.submit "毒を吐く",id: 'submit'
+
+

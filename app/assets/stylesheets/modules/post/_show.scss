@@ -1,0 +1,124 @@
+.post_show{
+  display: flex;
+  .show{
+    width: 100%;
+    height: 100%;
+    .show_head{
+      display: flex;
+      height: 140px;
+      background-color: #d9d7e04a;
+   
+      &__profile{
+        padding:30px 0 0 30px;
+        width: 150px;
+        &__image{
+          height: 50%;
+          border-radius: 100%;
+        }
+        &__nickname{
+          padding-left: 30px;
+        }
+      }
+      &__right{
+        padding: 30px;
+        flex: 1;
+
+        &__title{
+          font-size: 1.8em;
+          border-bottom:3px double #b4b4b7;
+        }
+        &__data{
+    
+          margin-top: 10px;
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+
+          &__left{
+            font-size: 0.9em;
+            color: #7e8186;
+          }
+          &__right{
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+    .show_content{
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    height: 100%;    
+    }
+    .show_form{
+      padding: 10px;
+      width: 80%;
+      border: 1px solid black;
+      border-radius: 20px;
+      margin:  0 auto;
+      display: flex;
+      justify-content: space-around;
+      &__edit{
+        .icon{
+          color: black;
+          cursor: pointer;
+          font-size: 1.8em;
+          &:hover{
+            color: #B4B4B7;
+          }
+        }
+      }
+      &__delete{
+        .icon{
+          color: black;
+          cursor: pointer;
+          font-size: 1.8em;
+          &:hover{
+            color: #B4B4B7;
+          }
+        }
+      }
+      
+    }
+    .show_bottom{
+      padding: 10px;
+      width: 80%;
+      height: 100%;
+      border: 1px solid black;
+      border-radius: 20px;
+      margin:  0 auto;
+      display: flex;
+      &__left{
+        margin:0 10px 0 10px;
+        &__follow{}
+        &__iine{}
+      }
+      &__input{
+
+        width: 100%;
+        height: 100%;
+        position: relative;
+        &__form{
+          width: 90%;
+          height: 100%;
+          resize: none;
+          overflow: scroll;
+          padding: 8px;
+        }
+        &__submit{
+          background-color: blue;
+        }
+        .icon{
+          position: absolute;
+          right: 20px;
+          top: 20px;
+          font-size:1.8em ;
+          cursor: pointer;
+        }
+        #submit{
+          display: none;
+        }
+      }
+    }
+  }
+}

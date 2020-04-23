@@ -28,7 +28,7 @@
 
         .main__top__profile 
           %span
-            -if current_user.profile.empty?
+            -unless current_user.profile
               ="プロフィールを入力してください"
               %br/
               ="このアプリは友人や家族など近い故に吐き出すことができない"
@@ -59,5 +59,5 @@
                 %span 
                   =post.user.occupation.name
               %li.list__product__content
-                %span
-                  =post.content
+                %p
+                  = markdown(post.content).html_safe

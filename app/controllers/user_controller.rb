@@ -4,4 +4,6 @@ class UserController < ApplicationController
     @posts = @user.posts.order("created_at DESC")
     
   end
+
+  
 end
