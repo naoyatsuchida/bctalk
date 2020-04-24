@@ -12,6 +12,14 @@ Rails.application.routes.draw do
   resources :user, only:[:show,:edit]
   resources :posts do
     resources :likes, only: [:create, :destroy]
+    collection do
+      get 'search'
+    end
+    member do
+      get 'industrycategory'
+      get 'occupationcategory'
+    end
+
   end
   resources :relationships, only: [:create, :destroy] do 
     member do
