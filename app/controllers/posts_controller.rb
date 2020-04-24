@@ -12,7 +12,7 @@ before_action :set_post, only:[:update,:show,:edit,:destroy]
   end
 
   def show
- 
+    @like = Like.new
   end
 
   def destroy
@@ -56,3 +56,5 @@ before_action :set_post, only:[:update,:show,:edit,:destroy]
     @post = Post.find(params[:id])
   end
 end
+
+
