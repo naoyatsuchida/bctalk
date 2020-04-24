@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   get   '/users/sign_up' => 'users/registrations#new',as: :signup #ログインしてなかったらこのページに飛ぶ
   
   root  'posts#index' 
-  resources :posts
   resources :user, only:[:show,:edit]
+  resources :posts do
+    resources :likes, only: [:create, :destroy]
+  end
   resources :relationships, only: [:create, :destroy] do 
     member do
     get :following

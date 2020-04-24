@@ -14,8 +14,11 @@
           =@post.title
         .show_head__right__data
           .show_head__right__data__right
-            ="黒いいね数"
-            %i.fas.fa-tired.bad
+            ="黒いいね数:#{ @post.likes.count}"
+            - if current_user.already_liked?(@post.id)
+              =button_to "クロいいくない", post_like_path(@post.id), method: :delete
+            -else
+              = button_to "クロいい", "/posts/#{@post.id}/likes"
           .show_head__right__data__left
             ="所属業界 : #{@post.user.industry.name}"
             %br/
