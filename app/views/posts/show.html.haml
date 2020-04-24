@@ -38,7 +38,15 @@
       .show_bottom
         .show_bottom__left
           .show_bottom__left__follow
-            ="フォローする"
+            - unless current_user == @post.user
+              - if current_user.following?(@post.user)
+                = form_for(current_user.relationships.find_by(follow_id: @post.user.id), html: { method: :delete }) do |f|
+                  = f.hidden_field :follow_id, value: @post.user.id
+                  = f.submit 'フォロー中', class: 'follow-now'
+              - else
+                = form_for(current_user.relationships.build) do |f|
+                  = f.hidden_field :follow_id, value: @post.user.id
+                  = f.submit 'フォロー', class: 'follows'
           .show_bottom__left__iine
             ="黒いいね"
         .show_bottom__input

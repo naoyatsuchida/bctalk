@@ -26,20 +26,20 @@
       .post__contents
         - @posts.each do |post|
           .post__contents__article
-            =link_to post_path(post.id)  do
+            =link_to user_path(post.user.id)  do
               -if post.images.empty?
                 = image_tag asset_path("log/bctalk.png"),class: 'post__contents__article__image'
               -else
                 = image_tag asset_path(post.images[0].src),class: 'post__contents__article__image'
-            
-            .post__contents__article__body 
-              
-              = post.title
-            .post__contents__article__user
-              %span 
-                =post.user.industry.name
-              %span 
-                =post.user.occupation.name
+            =link_to post_path(post.id) do
+              .post__contents__article__body 
+                = post.title
+            =link_to post_path(post.id) do
+              .post__contents__article__user
+                %span 
+                  =post.user.industry.name
+                %span 
+                  =post.user.occupation.name
     = paginate @posts
     
   

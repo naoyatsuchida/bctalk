@@ -12,19 +12,25 @@
 
           .main__top__header__name
             %p
-              =current_user.nickname
+              =@user.nickname
               %br/
             %span 
               所属業界
-              =current_user.industry.name
+              =@user.industry.name
               %br/
             %span 
               職種
-              =current_user.occupation.name
+              =@user.occupation.name
 
             .follow
-              =link_to "following","#"
-              =link_to "followers","#"
+              %span 
+                &nbsp;
+                ="#{@following_count} : " 
+              =link_to "following",following_relationship_path(@user.id)
+              %span
+                &nbsp;
+                =" #{@follower_count} : "
+              =link_to "followers",follower_relationship_path(@user.id)
 
         .main__top__profile 
           %span
