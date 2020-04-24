@@ -1,0 +1,38 @@
+.follow
+  = render partial: 'user/side'
+  .follow__content
+    -unless @user.empty?
+      -@user.each do |user|
+        .follow__content__box
+          .follow__content__box__profile
+            .follow__content__box__profile__top
+              =link_to user_path(user.id) do
+                -if user.image
+                  =image_tag asset_path('log/bctalk.png'),class:'image'
+                - else 
+                  =image_tag asset_path('log/bctalk.png'),class:'image'
+              .profile
+                .name
+                  = user.nickname
+                %span
+                  = "業界 : #{user.industry.name}"
+        
+                %span
+                  = "職種 : #{user.occupation.name}"
+            .follow__content__box__profile__follow
+              - unless current_user == user
+                - if current_user.following?(user)
+                  = form_for(current_user.relationships.find_by(follow_id: user.id), html: { method: :delete }) do |f|
+                    = f.hidden_field :follow_id, value: user.id
+                    = f.submit 'フォロー中', class: 'follow-now'
+                - else
+                  = form_for(current_user.relationships.build) do |f|
+                    = f.hidden_field :follow_id, value: user.id
+                    = f.submit 'フォロー', class: 'follows'
+          %hr/
+          .follow__content__box__bottom
+            =user.profile
+    -else
+      .follow__content__empty
+        ="フォロー・フォロワーはいません"
+    

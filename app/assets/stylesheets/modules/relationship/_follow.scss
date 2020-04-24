@@ -1,0 +1,52 @@
+.follow{
+  display: flex;
+  &__content{
+    overflow: scroll;
+    width: 70%;
+
+  
+    margin: 0 auto;
+  &__empty{
+    width: 500px;
+    margin: 50px auto;
+    font-size: 1.8em;
+    
+  }
+  &__box{
+    height: 150px;
+    border: 1px solid #eceaea;
+    padding: 10px;
+  
+    &__profile{
+      display: flex;
+      justify-content: space-between;
+      &__top{
+        display: flex;
+        
+        .image{
+          width: 50px;
+          height: 50px;
+          border-radius: 100px;
+        }
+        .profile{
+          padding-left: 15px;
+        
+          .name{
+            font-weight: bold;
+          }
+          span{
+            font-size: 0.8em;
+            margin-left: 10px;
+          }
+        }
+      }
+      &__follow{
+        padding: 10px 10px 0 0;
+        .follow-now{
+
+        }
+      }
+    }
+  }
+  }
+}
