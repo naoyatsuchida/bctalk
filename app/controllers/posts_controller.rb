@@ -23,6 +23,28 @@ before_action :set_post, only:[:update,:show,:edit,:destroy]
     end
   end
 
+  def search
+    @Industry_parents = Industry.all.where(ancestry: nil).limit(14)
+    @Occupation_parents = Occupation.all.where(ancestry: nil).limit(15)
+
+  end
+
+  def industrycategory
+    @industry = Industry.find(params[:id])
+    @users =User.where(industry_id: @industry.id)
+    @posts = Post.page(params[:page]).where(user_id: @users.ids).order('created_at DESC').per(6).includes(:user,:images)
+    render :index
+  
+  end 
+
+  def occupationcategory
+    @occupation = Occupation.find(params[:id])
+    @users =User.where(occupation_id: @occupation.id)
+    @posts = Post.page(params[:page]).where(user_id: @users.ids).order('created_at DESC').per(6).includes(:user,:images)
+    render :index
+  
+  end 
+
 
 
   def edit 

@@ -1,0 +1,43 @@
+.searchwrapper{
+  background-color: #F5F5F5;
+  height: 100%;
+  width: 100%;
+  &__main{
+    width: 70%;
+    margin: 0 auto;
+    padding: 50px 0 50px 0;
+    h1{
+      font-size: 1.3em;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    
+    .boxs{
+      display: flex;
+      flex-wrap: wrap;
+      .box{
+    
+        margin: 5px;
+        width: 30%;
+        .parent{
+          background-color: #3a3a3a;
+          padding: 10px;
+          font-size: 1.5em;
+          font-weight: bold;
+          color: white;
+          margin-top: 20px;
+         
+          &__child{
+            color: black;
+            background-color: white;
+            padding: 5px;
+            &__list{
+              text-decoration: none;
+              color: #3a3a3a;
+            }
+          }
+        }
+      }
+    }
+  }
+}

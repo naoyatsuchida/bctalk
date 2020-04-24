@@ -1,0 +1,10 @@
+.searchwrapper
+  .searchwrapper__main
+    %h1 業界から探す
+    .boxs
+      -@Industry_parents.each_with_index do |parent,id|
+        =render partial: 'search', locals: {parent: parent,id: id}
+    %h1 職種から探す
+    .boxs
+      -@Occupation_parents.each_with_index do |parent,id|
+        =render partial: 'osearch', locals: {parent: parent,id: id}

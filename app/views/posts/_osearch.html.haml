@@ -1,0 +1,8 @@
+
+.box
+  .parent{ id:"section#{id}"}
+    - id
+    = parent.name 
+  -parent.children.each do |child|
+    .parent__child
+      = link_to child.name, occupationcategory_post_path(child.id),class:'parent__child__list'

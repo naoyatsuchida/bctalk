@@ -1,60 +1,75 @@
 .indexwrap
   = render partial: 'user/side'
-  .contents
-    .post
+  - unless @posts.empty?
+    .contents
+      .post
 
-      .post__title
-        %span あなたが辛いのはあなたが悪いわけじゃない
-      %hr/
-      .post__top
-        .post__top__nav
-          =link_to post_path(@first_post.id),class:'post__top__nav__title' do
-            =@first_post.title
-          .post__top__nav__body
-            = markdown(@first_post.content).html_safe
-          .post__top__nav__user
-            =@first_post.user.nickname
-            =@first_post.user.industry.name
-            =@first_post.user.occupation.name
-            ="黒いいね数:#{ @first_post.likes.count}"
-        - unless @first_post.images.empty?
-          = image_tag asset_path(@first_post.images[0].src),class:'post__top__image'
-        - else 
-          = image_tag asset_path("log/bctalk.png"), class: 'post__top__image'
-          
+        .post__title
+          %span あなたが辛いのはあなたが悪いわけじゃない
+        %hr/
+        - unless @first_post
+          .post__top
+            .post__top__nav
+              .post__top__nav__title
       
-      %hr/
-      .post__contents
-        - @posts.each do |post|
-          .post__contents__article
-            =link_to user_path(post.user.id)  do
-              -if post.images.empty?
-                = image_tag asset_path("log/bctalk.png"),class: 'post__contents__article__image'
-              -else
-                = image_tag asset_path(post.images[0].src),class: 'post__contents__article__image'
-            =link_to post_path(post.id) do
-              .post__contents__article__body 
-                = post.title
-            =link_to post_path(post.id) do
-              .post__contents__article__user
-                %span 
-                  =post.user.industry.name
-                %span 
-                  =post.user.occupation.name
-                %span
-                  -if post.likes.count >= 100
-                    ="明日から飛びましょう"
-                  -elsif post.likes.count >= 50
-                    ="転職先を探しましょう"
-                  -elsif post.likes.count >= 30
-                    ="退職を念頭に置きましょう"
-                  -elsif post.likes.count >= 10
-                    ="石の上に三年もいる必要はないです"
-                  -elsif post.likes.count >= 1
-                    ="世の中にはもっとひどい企業がいますよ"
-                  -else
-                    ="客観的にホワイト企業"
+        -else 
+          .post__top
+            .post__top__nav
+              =link_to post_path(@first_post.id),class:'post__top__nav__title' do
+                =@first_post.title
+              .post__top__nav__body
+                = markdown(@first_post.content).html_safe
+              .post__top__nav__user
+                =@first_post.user.nickname
+                =@first_post.user.industry.name
+                =@first_post.user.occupation.name
+                ="黒いいね数:#{ @first_post.likes.count}"
+            - unless @first_post.images.empty?
+              = image_tag asset_path(@first_post.images[0].src),class:'post__top__image'
+            - else 
+              = image_tag asset_path("log/bctalk.png"), class: 'post__top__image'
+        
+              
+        
+        %hr/
+        .post__contents
+          - @posts.each do |post|
+            .post__contents__article
+              =link_to user_path(post.user.id)  do
+                -if post.images.empty?
+                  = image_tag asset_path("log/bctalk.png"),class: 'post__contents__article__image'
+                -else
+                  = image_tag asset_path(post.images[0].src),class: 'post__contents__article__image'
+              =link_to post_path(post.id) do
+                .post__contents__article__body 
+                  = post.title
+              =link_to post_path(post.id) do
+                .post__contents__article__user
+                  %span 
+                    =post.user.industry.name
+                  %span 
+                    =post.user.occupation.name
+                  %span
+                    -if post.likes.count >= 100
+                      ="明日から飛びましょう"
+                    -elsif post.likes.count >= 50
+                      ="転職先を探しましょう"
+                    -elsif post.likes.count >= 30
+                      ="退職を念頭に置きましょう"
+                    -elsif post.likes.count >= 10
+                      ="石の上に三年もいる必要はないです"
+                    -elsif post.likes.count >= 1
+                      ="世の中にはもっとひどい企業がいますよ"
+                    -else
+                      ="客観的にホワイト企業"
 
-    = paginate @posts
+      = paginate @posts
+  - else 
+    .contents
+      .post
+
+        .post__title
+          %span お探し記事はございません
+
     
   
