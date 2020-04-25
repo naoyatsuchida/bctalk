@@ -163,6 +163,17 @@ $takasa:45px;
       font-size: 1.1em;
       color: black;
     }
+    .listsearch{
+      padding: 10px;
+      #word{
+        border-radius: 10px;
+      
+      }
+     
+      #kensaku{
+        display: none;
+      }
+    }
     @include list;
   }
   p{
