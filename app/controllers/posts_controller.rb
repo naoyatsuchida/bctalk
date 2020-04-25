@@ -27,6 +27,15 @@ before_action :set_post, only:[:update,:show,:edit,:destroy]
     @Industry_parents = Industry.all.where(ancestry: nil).limit(14)
     @Occupation_parents = Occupation.all.where(ancestry: nil).limit(15)
 
+    if params[:word]
+      @posts = Post.page(params[:page]).search(params[:word]).order('created_at DESC').per(6).includes(:user,:images)
+      render :index
+    else
+      render :search
+    end
+
+  
+
   end
 
   def industrycategory
