@@ -1,0 +1,10 @@
+.group{
+  display: flex;
+  &__content{
+    flex: 1;
+    .box{
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.group
+  =render partial: 'user/side'
+  .group__content
+    .box
+      =form_for @group do |f|
+        = f.text_field :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください"
+        = f.collection_check_boxes :user_ids, @users, :id, :nickname
+        = f.submit "Save", class: "chat-group-form__action-btn"
