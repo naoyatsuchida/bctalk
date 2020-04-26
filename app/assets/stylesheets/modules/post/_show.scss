@@ -50,6 +50,12 @@
     padding: 10px;
     height: 100%;    
     }
+    .show_comment{
+      margin: 10px 0 10px 0;
+    .follow__content__box__bottom{
+      height: 100%;
+    }
+    }
     .show_form{
       padding: 10px;
       width: 80%;
@@ -115,7 +121,7 @@
           font-size:1.8em ;
           cursor: pointer;
         }
-        #submit{
+        #comment_submit{
           display: none;
         }
       }

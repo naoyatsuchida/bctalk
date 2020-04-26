@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :images
   has_many :likes
   has_many :liked_users, through: :likes, source: :user
+  has_many :comments
 
   validates_associated :images,allow_destroy: true
 
