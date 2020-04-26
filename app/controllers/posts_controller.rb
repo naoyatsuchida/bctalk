@@ -13,7 +13,7 @@ before_action :set_post, only:[:update,:show,:edit,:destroy]
 
   def show
     @like = Like.new
-    @comments = @post.comments
+    @comments = @post.comments.includes(:user)
     @comment =Comment.new
   end
 
