@@ -23,10 +23,40 @@
             ="所属業界 : #{@post.user.industry.name}"
             %br/
             ="業種 : #{@post.user.occupation.name}"
-
-
     .show_content
       = markdown(@post.content).html_safe
+    .show_comment
+      .follow__content
+        -unless @comments.empty?
+          -@comments.each do |c|
+            .follow__content__box
+              .follow__content__box__profile
+                .follow__content__box__profile__top
+                  =link_to user_path(user.id) do
+                    -if c.user.image
+                      =image_tag asset_path(c.user.image),class:'image'
+                    - else 
+                      =image_tag asset_path('log/bctalk.png'),class:'image'
+                  .profile
+                    .name
+                      = c.user.nickname
+                    %span
+                      = "業界 : #{c.user.industry.name}"
+            
+                    %span
+                      = "職種 : #{c.user.occupation.name}"
+              %hr/
+              .follow__content__box__bottom
+                =c.user.profile
+          
+
+
+
+
+
+
+
+
 
 
     -if current_user.id == @post.user.id 
@@ -50,8 +80,7 @@
                 = form_for(current_user.relationships.build) do |f|
                   = f.hidden_field :follow_id, value: @post.user.id
                   = f.submit 'フォロー', class: 'follows'
-          .show_bottom__left__iine
-            ="黒いいね"
+          
         .show_bottom__input
           = form_with() do |f|
             = f.text_area :content, placeholder: "comment",class: "show_bottom__input__form" 

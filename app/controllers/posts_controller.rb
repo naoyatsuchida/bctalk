@@ -13,6 +13,8 @@ before_action :set_post, only:[:update,:show,:edit,:destroy]
 
   def show
     @like = Like.new
+    @comments = @post.comments
+    @comment =Comment.new
   end
 
   def destroy
