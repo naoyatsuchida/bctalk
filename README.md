@@ -6,7 +6,7 @@
 [![Image from Gyazo](https://i.gyazo.com/68cf964653f773c00ab47a865c651af9.jpg)](https://gyazo.com/68cf964653f773c00ab47a865c651af9)
 
 ### 詳細
-facebooktのログイン機能のようなログインの有無でルートパスを変更しています。
+ログインの有無でルートパスを変更しています。
 
 
 #### 現在実装機能
