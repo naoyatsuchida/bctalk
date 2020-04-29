@@ -1,8 +1,13 @@
 .group
   =render partial: 'user/side'
   .group__content
-    .box
+    .group__content__box
+      %h3{class:'title'} フォロワーにメッセージを送ろう
       =form_for @group do |f|
-        = f.text_field :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください"
-        = f.collection_check_boxes :user_ids, @users, :id, :nickname
-        = f.submit "Save", class: "chat-group-form__action-btn"
+        = f.text_field :name, class: "group__content__box__title", placeholder: "グループ名を入力してください"
+        .group__content__box__menber
+          メンバー一覧
+          %br/
+          = f.collection_check_boxes :user_ids, @users, :id, :nickname ,class: 'group__content__box__menber__name'
+          %br/
+          = f.submit "Save", class: "group__content__box__menber__save"

@@ -1,10 +1,39 @@
 .group{
   display: flex;
+
   &__content{
+    background-color: red;
     flex: 1;
-    .box{
+    &__box{
+      .title{
+        text-align: center;
+        margin-bottom: 20px;
+        he
+        
+      }
       width: 80%;
-      margin: 0 auto;
+      margin: 50px auto;
+      padding: 50px 0;
+      background-color: blue;
+      &__title{
+        width: 30%;
+        margin: 0 auto;
+        display: block;
+      }
+      &__menber{
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+        input{
+          margin-right: 5px;
+        }
+        label{
+          margin-right: 10px;
+        }
+        &__save{
+
+        }
+      }
     }
   }
 }
