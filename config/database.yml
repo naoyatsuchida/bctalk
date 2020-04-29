@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: bctalk_production
-  username: bctalk
+  username: root
   password: <%= ENV['BCTALK_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
