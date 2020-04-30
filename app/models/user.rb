@@ -23,6 +23,7 @@ class User < ApplicationRecord
           has_many :likes, dependent: :destroy
           has_many :liked_posts, through: :likes, source: :post
           
+          
 
           mount_uploader :image, ImageUploader
           validates :email,:nickname,:industry_id,:occupation_id ,presence: true
