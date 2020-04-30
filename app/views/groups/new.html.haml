@@ -1,0 +1,15 @@
+.group
+  =render partial: 'user/side'
+  .group__content
+    %h3{class:'title'} 新規グループチャット
+    .group__content__box
+      =form_for @group do |f|
+        .group__content__box__text
+          = f.label :name 
+          = f.text_field :name,id: 'group_name', class: "group__content__box__text__title", placeholder: "グループ名を入力してください"
+        .group__content__box__menber
+          %h4 メンバー追加
+          .group__content__box__menber__index
+            = f.collection_check_boxes :user_ids, @users, :id, :nickname ,class: 'group__content__box__menber__name'
+ 
+        = f.submit "Save", class: "group__content__box__menber__save"

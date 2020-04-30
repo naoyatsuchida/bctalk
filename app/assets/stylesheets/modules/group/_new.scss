@@ -1,0 +1,68 @@
+.group{
+  display: flex;
+
+  &__content{
+
+    border: 1px solid gray;
+    margin: 50px auto;
+    width: 70%;
+    padding: 20px;
+    height: 100%;
+    .title{
+      text-align: center;
+      
+      height: 100%;
+      font-size: 1.6em;
+      
+    }
+    &__box{
+      width: 80%;
+      margin: 50px auto;
+      // padding: 50px 0;
+
+      &__text{
+        width: 70%;
+        display: flex;
+        margin: 0 auto;
+        label{
+          font-size: 1.5em;
+          margin-right: 15px;
+        }
+        &__title{
+          width: 100%;
+          line-height: 30px;
+          padding: 10px 15px;
+          box-sizing: border-box;
+        }
+      }
+      &__menber{
+        width: 80%;
+        height: 20%;        
+        display:flex;
+        margin: 0 auto;
+        h4{
+          width: 150px;
+        }
+        &__index{
+          margin: 10px 0 0 10px;
+          width: 90%;
+          height: 20%;
+          input{
+            margin-right: 5px;
+            overflow: scroll;
+          }
+          label{
+            margin-right: 10px;
+          }
+        }
+        &__save{
+        display: block;
+        width: 100px;
+        height: 50px;
+        background-color: skyblue;
+        margin: 30px auto;
+        }
+      }
+    }
+  }
+}
