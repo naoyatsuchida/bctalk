@@ -22,9 +22,6 @@ Rails.application.routes.draw do
     end
 
   end
-  
-  resources :groups
-
   resources :relationships, only: [:create, :destroy] do 
     member do
     get :following
