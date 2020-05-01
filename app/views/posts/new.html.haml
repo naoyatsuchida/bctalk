@@ -11,6 +11,9 @@
             =f.submit "毒を吐く",id:"post_submit"
 
       #image-box
+        
+        
+        = react_component 'Post'
         #previews
           - if @post.persisted?
             - @post.images.each_with_index do |image, i|
