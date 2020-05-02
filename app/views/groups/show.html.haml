@@ -1,27 +1,14 @@
 .groupmessage
   =render partial: 'user/side'
   .contents
-  .contents__header
     .title
       
       %p.title__group 
         = @group.name 
-      %p.title__member 
-        %span membar:
-        -@group.users.each do |you|
-          
-          = you.nickname
-     
-          
-    
-        
-      
-    .edit
-      = link_to "Edit",edit_group_path(@group),class: "edit__link" 
-
-      
-
-
+      =link_to menber_group_path(@group.id) do
+        %p.title__member 
+          %span membar:
+          =@group.users.count
 
   .contents__main
     .messages

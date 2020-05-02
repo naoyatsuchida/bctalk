@@ -15,14 +15,15 @@ class GroupsController < ApplicationController
   def destroy
     groups = Group.find(params[:id])
     if groups.users.delete(current_user)
-    
-
-    
-
       redirect_to root_path
     else
       render :new
     end
+  end
+
+  def menber
+    @group = Group.find(params[:id])
+  
   end
 
   def create
