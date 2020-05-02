@@ -1,0 +1,70 @@
+.message{
+  display: flex;
+  &__content{
+    overflow: scroll;
+    width: 70%;
+    margin: 0 auto;
+    text-decoration: none;
+  &__empty{
+    width: 500px;
+    margin: 50px auto;
+    font-size: 1.8em;
+    
+  }
+  &__box{
+    height: 150px;
+    border: 1px solid #eceaea;
+    padding: 10px;
+    margin-top: 15px;
+    height: 20%;
+    &__top{
+      display: flex;
+      justify-content: space-between;
+      a{
+        text-decoration: none;
+      }
+      &__profile{
+        padding-left: 15px;
+        font-weight: bold;
+        color: black;    
+        font-size: 1.4em;
+        
+      }
+      &__set{
+        text-decoration: none;
+        padding-right: 20px;
+        display: flex;
+        .edit{
+          .icon{
+            color: black;
+            font-size: 1.4em;
+          }
+        }
+        .delete{
+          .icon{
+            font-size: 1.4em;
+            color: black;
+            margin-left: 10px;
+          }
+          
+        }
+        
+      }
+    }
+    &__member{
+      display: flex;
+      overflow: scroll;
+      span{
+        
+        font-weight: bold;
+        margin-right: 10px;
+      }
+      &__name{
+        margin-right: 5px;
+      }
+    }
+
+
+  }
+}
+}

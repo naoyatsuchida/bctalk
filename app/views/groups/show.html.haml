@@ -1,0 +1,38 @@
+.groupmessage
+  =render partial: 'user/side'
+  .contents
+  .contents__header
+    .title
+      
+      %p.title__group 
+        = @group.name 
+      %p.title__member 
+        %span membar:
+        -@group.users.each do |you|
+          
+          = you.nickname
+     
+          
+    
+        
+      
+    .edit
+      = link_to "Edit",edit_group_path(@group),class: "edit__link" 
+
+      
+
+
+
+  .contents__main
+    .messages
+      = render partial: @message
+    
+
+  .contents__footer
+    -# = form_for([@group,@message], :html => {:class => "form_tag"}) do |f|
+    -#   .input
+    -#     = f.text_field :content, placeholder: "type a message",class: "input__text" 
+    -#     = f.label :image, class: "input__label"  do
+    -#       %i.fa.fa-image
+    -#       = f.file_field :image,class: "input__image"
+    -#   = f.submit "Send",class: "input__submit"
