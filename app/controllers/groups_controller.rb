@@ -33,9 +33,9 @@ class GroupsController < ApplicationController
 
   def create
     group = Group.new(strong_params)
-    binding.pry
+
     if group.save
-      redirect_to messages_path
+      redirect_to groupss_path
     else
       render :new
     end
