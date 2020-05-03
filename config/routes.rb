@@ -22,8 +22,12 @@ Rails.application.routes.draw do
     end
 
   end
-  
-  resources :groups
+  resources :groups do 
+    resources :messages
+    member  do
+      get 'menber'
+    end
+  end
 
   resources :relationships, only: [:create, :destroy] do 
     member do

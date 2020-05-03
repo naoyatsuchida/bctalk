@@ -1,0 +1,30 @@
+.message
+  = render partial: 'user/side'
+  .message__content
+    -unless current_user.groups.empty?
+      -current_user.groups.each do |group|
+        =link_to group_path(group) do
+          .message__content__box
+            .message__content__box__top
+              .message__content__box__top__profile
+                = group.name
+              .message__content__box__top__set
+                .edit
+                  = link_to edit_group_path(group) do
+                    %i.fas.fa-cog.icon
+                .delete
+                  =link_to group_path(group),method: :delete do
+                    %i.fas.fa-door-open.icon
+            %hr/
+            .message__content__box__member
+              %span member:
+              -group.users.each do |u|
+                .message__content__box__member__name
+                  =u.nickname
+
+          
+    -else
+      .message__content__empty
+        =link_to new_group_path do
+          ="groupを作成しましょう"
+        

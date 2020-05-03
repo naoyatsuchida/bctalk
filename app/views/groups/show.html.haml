@@ -1,0 +1,50 @@
+.groupmessage
+  =render partial: 'user/side'
+  .contents
+    .title
+      .left
+        %p.left__group 
+          = @group.name 
+        =link_to menber_group_path(@group.id) do
+          %p.left__member 
+            %span membar:
+            =@group.users.count
+      .right
+        =link_to '一覧' ,groups_path
+ 
+    
+    .messages
+      -if @messages
+        -@messages.each do |message|
+          .message{"data-message-id": "#{message.id}"} 
+            -if message.user.id == current_user.id
+              .right
+                .right__message  
+                  %p.right__message__content
+                    =safe_join(message.content.split("\n"),tag(:br))
+                  
+                .right__title
+                  .right__title__date
+                    = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+            -else 
+              .left
+                .left__message
+                  
+                  =image_tag asset_path(message.user.image)
+                  %span.left__message__content
+                    = message.content
+                .left__title
+                  -if message.user
+                    .left__title__name
+                      = message.user.nickname
+                    .left__title__date
+                      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+          %br/
+
+    .contents__footer
+      = form_for [@group, @message],local: true do |f|
+        .input
+          = f.text_area :content, placeholder: "type a message",class: "input__text" 
+          = f.label :submit do
+            %i.fas.fa-paper-plane.icon 
+            = f.submit class: "input__submit" ,id:'message_submit'

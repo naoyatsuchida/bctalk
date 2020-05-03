@@ -1,0 +1,158 @@
+.groupmessage{
+  display: flex;
+
+  .contents{
+    background-color: #f5f5f5;
+    position: relative;
+    margin-left: -5px;
+    flex: 1;
+    width: 100%;
+    height: 93vh;
+
+    .title{
+      display: flex;
+ 
+      background-color:#d0d0d0b3;
+      width: 100%;
+      height: 45px;
+      line-height: 45px;
+      justify-content: space-between;
+      .left{
+        display: flex;
+        justify-content: space-between;
+        &__group{
+          padding-left: 10px;
+          font-weight: bold;
+          margin-right: 15px;
+        }
+        a{
+          
+          text-decoration: none;
+          color: black;
+          font-size: 0.9em;
+          opacity: 0.8;
+        }
+        &__member{
+          
+          
+        }
+        }
+        .right{
+          padding-right: 20px;
+          a{
+            text-decoration: none;
+            color: black;
+          }
+        }
+      }
+    .messages{
+      height: 80%;
+      position: relative;
+      overflow: scroll;
+      background-color: #f5f5f5;
+      .message{
+        margin: 30px 0 50px 0;
+
+        .right{
+        position: absolute;
+        right: 10px;
+        &__message{
+          background-color: cadetblue;
+            border-radius: 10px;
+            padding: 1px 10px 1px 10px;
+            font-size: 0.9em;
+            line-height: 40px;
+            margin-left: 10px;
+
+          
+        }
+        &__title{
+          &__date{
+            font-size: 0.8em;
+            opacity: 0.8;
+          }
+        }
+        }
+       
+        .left{
+          position: absolute;
+          left: 10px;
+          
+        &__message{
+          display: flex;
+         
+          img{
+            width: 40px;
+            height: 40px;
+            border-radius: 100px;
+            display: block;
+          }
+          &__content{
+            background-color: cadetblue;
+            border-radius: 10px;
+            padding: 1px 10px 1px 10px;
+            font-size: 0.9em;
+            line-height: 40px;
+            margin-left: 10px;
+          }
+        }
+        &__title{
+          display: flex;
+          padding: 5px;
+          &__name{
+            margin-right: 5px;
+          }
+          &__date{
+            font-size: 0.8em;
+          }
+        }
+        }
+      }
+      
+
+    }
+    &__footer{
+      position: absolute;
+      width: 100%;
+      background-color: #cacaca;
+      bottom: 0;
+      height:60px;
+      form{
+        display: flex;
+        .input{
+          display: flex;
+          width: 100%;
+          
+          &__text{
+            padding: 2px;
+            display: block;
+            width: 90%;
+            height: 90%;
+
+            resize: none;
+          
+            
+          }
+          
+            .icon{
+              font-size: 1.7em;
+              line-height: 60px;
+              margin-left: 10px;
+              color: white;
+              cursor: pointer;
+              &:hover{
+                color: black;
+              }
+            
+          }
+    
+          &__submit{
+            display: none;
+            
+    
+          }
+        }
+      }
+    }
+  }
+}
