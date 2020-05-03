@@ -1,4 +1,8 @@
 class GroupsController < ApplicationController
+  def index
+
+  end
+
   def new
     @group = Group.new
     @group.users << current_user
@@ -10,6 +14,7 @@ class GroupsController < ApplicationController
   def show 
     @group = Group.find(params[:id])
     @message = Message.new
+    @messages = @group.messages.includes(:user)
   end
 
   def destroy
@@ -28,6 +33,7 @@ class GroupsController < ApplicationController
 
   def create
     group = Group.new(strong_params)
+    binding.pry
     if group.save
       redirect_to messages_path
     else
