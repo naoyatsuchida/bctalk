@@ -5,13 +5,12 @@ class MessagesController < ApplicationController
   end
 
   def create
-  @message = Message.new(message_params)
-  binding.pry
+  @message = @group.messages.new(message_params)
   if @message.save
-    # respond_to do |format|
-    #   format.json
-    # end
-    render :show
+    respond_to do |format|
+      format.json
+    end
+    
   else
     @messages = @group.messages.includes(:user)
     flash.now[:alert] = 'メッセージを入力してください。'
