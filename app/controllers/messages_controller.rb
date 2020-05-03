@@ -5,14 +5,14 @@ class MessagesController < ApplicationController
   end
 
   def create
-
+    @group = Group.find(params[:group_id])
     @message = @group.messages.new(message_params)
-  binding.pry
+  
   if @message.save
     # respond_to do |format|
     #   format.json
     # end
-    render :show
+    redirect_to root_path
   else
     @messages = @group.messages.includes(:user)
     flash.now[:alert] = 'メッセージを入力してください。'

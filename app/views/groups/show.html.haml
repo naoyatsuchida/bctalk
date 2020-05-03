@@ -18,9 +18,9 @@
       
 
     .contents__footer
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message],local: true do |f|
         .input
           = f.text_field :content, placeholder: "type a message",class: "input__text" 
           = f.label :submit do
             %i.fas.fa-paper-plane.icon 
-            = f.submit class: "input__submit" ,id:'submit'
+            = f.submit class: "input__submit" ,id:'message_submit'
