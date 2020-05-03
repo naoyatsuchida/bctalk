@@ -10,7 +10,7 @@
             %span membar:
             =@group.users.count
       .right
-        =link_to '一覧' ,messages_path
+        =link_to '一覧' ,groups_path
  
     .contents__main
       .messages
@@ -18,10 +18,9 @@
       
 
     .contents__footer
-      = form_with url:group_message_path,local: true do |f|
+      = form_for [@group, @message] do |f|
         .input
-          = f.text_field :message, placeholder: "type a message",class: "input__text" 
-          = f.label :image, class: "input__label"  do
-            %i.fa.fa-image
-            = f.file_field :image,class: "input__image"
-        = f.submit "Send",class: "input__submit"
+          = f.text_field :content, placeholder: "type a message",class: "input__text" 
+          = f.label :submit do
+            %i.fas.fa-paper-plane.icon 
+            = f.submit class: "input__submit" ,id:'submit'

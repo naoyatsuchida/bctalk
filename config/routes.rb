@@ -22,8 +22,8 @@ Rails.application.routes.draw do
     end
 
   end
-  resources :messages
   resources :groups do 
+    resources :messages
     member  do
       get 'menber'
     end

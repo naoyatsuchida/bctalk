@@ -8,11 +8,11 @@
     flex: 1;
     width: 100%;
     height: 93vh;
-    
+
     .title{
       display: flex;
  
-      background-color: red;
+      background-color:#d0d0d0b3;
       width: 100%;
       height: 45px;
       line-height: 45px;
@@ -54,8 +54,42 @@
     &__footer{
       position: absolute;
       width: 100%;
-      background-color: yellow;
+      background-color: #cacaca;
       bottom: 0;
+      height:60px;
+      form{
+        display: flex;
+        .input{
+          display: flex;
+          width: 100%;
+          height: 100%;
+          padding: 5px;
+          &__text{
+            display: block;
+            width: 90%;
+            height: 100%;
+            padding: 10px;
+          }
+          
+            .icon{
+              font-size: 1.7em;
+              line-height: 60px;
+              margin-left: 10px;
+              color: white;
+              cursor: pointer;
+              &:hover{
+                color: black;
+              }
+            
+          }
+    
+          &__submit{
+            display: none;
+            
+    
+          }
+        }
+      }
     }
   }
 }
