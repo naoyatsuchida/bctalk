@@ -1,13 +1,14 @@
 .message{"data-message-id": "#{message.id}"} 
   .messages__title
-    .title__name
-      -# = message.user.name
-    .title__date
-      -# = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+    -if message.user
+      .title__name
+        = message.user.nickname
+      .title__date
+        = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
 
 
   .messages__chat
-    - if message.message.present?
+    - if message.content.present?
       %p.lower-message__content
         = message.message
     -# = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
