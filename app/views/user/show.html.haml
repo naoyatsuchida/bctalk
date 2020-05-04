@@ -31,24 +31,15 @@
                 &nbsp;
                 =" #{@follower_count} : "
               =link_to "followers",follower_relationship_path(@user.id)
-
-        .main__top__profile 
-          %span
-            -unless current_user.profile
-              ="プロフィールを入力してください"
-              %br/
-              ="このアプリは友人や家族など近い故に吐き出すことができない"
-              %br/
-              ="自分の弱さ、他人にだから話せるような"
-              %br/
-              = "会社や上司からの不条理、業界のふまんなどを記事にして"
-              %br/
-              ="他者と共有する場所です"
-            -else
-              =current_user.profile
+       
+        -unless @user.profile.empty?
+          .main__top__profile 
+            %span
+              =@user.profile
+        -else
+          .main__top__damy
       .main__button
-        %button 
-          %span 記事リスト
+       
       .main__list
         -@posts.each do |post|
           =link_to post_path(post.id), class:'list' do
