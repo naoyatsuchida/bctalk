@@ -11,7 +11,7 @@
                 -if user.image
                   =image_tag asset_path('log/bctalk.png'),class:'image'
                 - else 
-                  =image_tag asset_path('log/bctalk.png'),class:'image'              .profile
+                  =image_tag asset_path('log/bctalk.png'),class:'image'           
                 .name
                   = user.nickname
                 %span
@@ -32,7 +32,8 @@
           %hr/
           .follow__content__box__bottom
             =user.profile
-      -else
-        %h3 現在あなた以外のメンバーはいません。
+      
+
+ 
     
 
