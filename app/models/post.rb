@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   has_many :comments
 
   validates_associated :images,allow_destroy: true
+  validates :title,:content,presence: true
 
   def self.search(word)
     if word
