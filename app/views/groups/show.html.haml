@@ -12,7 +12,8 @@
       .right
         =link_to '一覧' ,groups_path
  
-    
+    %input{name: "current_user_name", type: "hidden", value: current_user.id, class: 'current_user_name' }/
+ 
     .messages
       -if @messages
         -@messages.each do |message|
@@ -42,7 +43,7 @@
           %br/
 
     .contents__footer
-      = form_for [@group, @message],local: true do |f|
+      = form_for [@group, @message] do |f|
         .input
           = f.text_area :content, placeholder: "type a message",class: "input__text" 
           = f.label :submit do
