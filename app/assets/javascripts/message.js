@@ -45,7 +45,7 @@ return html;
   $('#new_message').on('submit', function(e){
    
     e.preventDefault();
-    var message = new FormData(this); //フォームに入力した値を取得しています。
+    var message = new FormData(this); 
     var url = (window.location.href) + '/messages';
     $.ajax({  
       url: url,
@@ -58,21 +58,22 @@ return html;
     .done(function(data){
       var html = buildHTML(data);
       $('.messages').append(html);
-      $('#message_content').val(''); //input内のメッセージを消しています。
-      function scrollBottom(){
-        var target = $('.message').last();
-        var position = target.offset().top + $('.messages').scrollTop();
-        $('.messages').animate({
-          scrollTop: position
-        }, 300, 'swing');
-      }
-      scrollBottom();
+      $('#message_content').val(''); 
+
+      // function scrollBottom(){
+      //   var target = $('.message').last();
+      //   var position = target.offset().top + $('.messages').scrollTop();
+      //   $('.messages').animate({
+      //     scrollTop: position
+      //   }, 300, 'swing');
+      // }
+      // scrollBottom();
     })
     .fail(function(){
       alert('エラーが発生したためメッセージは送信できませんでした。');
     })
     .always(function(){
-      $('.input__submit').prop('disabled', false);//ここで解除している
+      $('.input__submit').prop('disabled', false);
     })
   })
 });
