@@ -1,12 +1,5 @@
 $(document).on('turbolinks:load', function(){
-  function scrollBottom(){
-    var target = $('.message').last();
-    var position = target.offset().top + $('.messages').scrollTop();
-    $('.messages').animate({
-      scrollTop: position
-    }, 0, 'swing');
-  }
-  scrollBottom();
+ 
 
   // const timer = 6000    // ミリ秒で間隔の時間を指定
   // window.addEventListener('load',function(){
