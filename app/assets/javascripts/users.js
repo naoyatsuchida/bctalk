@@ -1,6 +1,7 @@
 //動的カテゴリボックスの実装
 $(document).on('turbolinks:load', ()=> {
   $('#Industry-form').on('change', function(){
+   
     let parentValue = document.getElementById("Industry-form").value;
     
     if (parentValue != "選択してください"){
