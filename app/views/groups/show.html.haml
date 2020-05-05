@@ -33,7 +33,7 @@
                   
                   =image_tag asset_path(message.user.image)
                   %span.left__message__content
-                    = message.content
+                    =safe_join(message.content.split("\n"),tag(:br))
                 .left__title
                   -if message.user
                     .left__title__name
@@ -45,7 +45,7 @@
     .contents__footer
       = form_for [@group, @message] do |f|
         .input
-          = f.text_area :content, placeholder: "type a message",class: "input__text" 
+          = f.text_area :content, placeholder: "type a message",class: "input__text" ,required: true
           = f.label :submit do
             %i.fas.fa-paper-plane.icon 
             = f.submit class: "input__submit" ,id:'message_submit'

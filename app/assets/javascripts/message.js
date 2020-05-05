@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function(){
- 
+
 
   // const timer = 6000    // ミリ秒で間隔の時間を指定
   // window.addEventListener('load',function(){
@@ -45,6 +45,8 @@ return html;
 
 
   }
+
+
   $('#new_message').on('submit', function(e){
     function scrollBottom(){
       var target = $('.message').last();

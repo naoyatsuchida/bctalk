@@ -32,7 +32,7 @@
                 =" #{@follower_count} : "
               =link_to "followers",follower_relationship_path(@user.id)
        
-        -unless @user.profile.empty?
+        -unless @user.profile.nil?
           .main__top__profile 
             %span
               =@user.profile

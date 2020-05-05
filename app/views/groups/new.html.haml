@@ -10,6 +10,9 @@
         .group__content__box__menber
           %h4 メンバー追加
           .group__content__box__menber__index
-            = f.collection_check_boxes :user_ids, @users, :id, :nickname ,class: 'group__content__box__menber__name'
+            - unless @users.empty?
+              = f.collection_check_boxes :user_ids, @users, :id, :nickname ,class: 'group__content__box__menber__name',required: true
+            - else
+              ="フォローしているユーザーがいません"
  
         = f.submit "Save", class: "group__content__box__menber__save"
