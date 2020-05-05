@@ -51,16 +51,7 @@
               %hr/
               .follow__content__box__bottom
                 = c.content
-          
-
-
-
-
-
-
-
-
-
+        
 
     -if current_user.id == @post.user.id 
       .show_form
@@ -86,7 +77,7 @@
           
         .show_bottom__input
           = form_with(model: [@post,@comment], local:true ) do |f|
-            = f.text_area :content, placeholder: "comment",class: "show_bottom__input__form" 
+            = f.text_area :content, placeholder: "comment",class: "show_bottom__input__form" ,required: true
             =f.label :submit do
               %i.fas.fa-pencil-alt.icon
               =f.submit "毒を吐く",id: 'comment_submit'

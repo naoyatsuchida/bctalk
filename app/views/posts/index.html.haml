@@ -50,18 +50,9 @@
                   %span 
                     =post.user.occupation.name
                   %span
-                    -if post.likes.count >= 100
-                      ="明日から飛びましょう"
-                    -elsif post.likes.count >= 50
-                      ="転職先を探しましょう"
-                    -elsif post.likes.count >= 30
-                      ="退職を念頭に置きましょう"
-                    -elsif post.likes.count >= 10
-                      ="石の上に三年もいる必要はないです"
-                    -elsif post.likes.count >= 1
-                      ="世の中にはもっとひどい企業がいますよ"
-                    -else
-                      ="客観的にホワイト企業"
+                    ="黒いいね:"
+                    =post.likes.count
+                    
 
       = paginate @posts
   - else 

@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @group.users << current_user
+    
 
     @users = current_user.followings
   
@@ -33,9 +33,11 @@ class GroupsController < ApplicationController
 
   def create
     group = Group.new(strong_params)
-
+ 
+    group.users << current_user
     if group.save
-      redirect_to groupss_path
+      
+      redirect_to groups_path
     else
       render :new
     end
@@ -44,11 +46,15 @@ class GroupsController < ApplicationController
   def edit
     @group = Group.find(params[:id])
     @users = current_user.followings
+
   end
 
   def update
-    @group = Group.find(params[:id])
-    if @group.update(strong_params)
+    group = Group.find(params[:id])
+  
+    
+    if group.update(strong_params)
+      
       redirect_to root_path
     else
       render :edit
