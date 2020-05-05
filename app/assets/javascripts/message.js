@@ -1,11 +1,6 @@
 $(document).on('turbolinks:load', function(){
 
 
-  // const timer = 6000    // ミリ秒で間隔の時間を指定
-  // window.addEventListener('load',function(){
-  //   setInterval('location.reload()',timer);
-  //   console.log('更新')
-  // });
 
   function buildHTML(message) {
     let img = message.user_image ? `${ message.user_image }` : "/images/log/bctalk.png";
@@ -48,13 +43,7 @@ return html;
 
 
   $('#new_message').on('submit', function(e){
-    function scrollBottom(){
-      var target = $('.message').last();
-      var position = target.offset().top + $('.messages').scrollTop();
-      $('.messages').animate({
-        scrollTop: position
-      }, 300, 'swing');
-    }
+   
     e.preventDefault();
     var message = new FormData(this); //フォームに入力した値を取得しています。
     var url = (window.location.href) + '/messages';
@@ -70,6 +59,13 @@ return html;
       var html = buildHTML(data);
       $('.messages').append(html);
       $('#message_content').val(''); //input内のメッセージを消しています。
+      function scrollBottom(){
+        var target = $('.message').last();
+        var position = target.offset().top + $('.messages').scrollTop();
+        $('.messages').animate({
+          scrollTop: position
+        }, 300, 'swing');
+      }
       scrollBottom();
     })
     .fail(function(){
