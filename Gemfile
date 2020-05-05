@@ -80,8 +80,8 @@ gem 'devise-i18n'     #エラー文章日本語化のため,下のジェムも�
 gem 'devise-i18n-views'
 gem 'devise'
 gem 'kaminari'
-gem 'webpacker'
-gem 'react-rails'
+
+
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'bootstrap_form'
