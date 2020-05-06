@@ -39,9 +39,9 @@ message機能　
 コメント機能
 
 ### 開発環境
-rails 5.1.4
-ruby 2.5.1
-aws
+rails 5.1.4 
+ruby 2.5.1 
+aws 
 
  
  
