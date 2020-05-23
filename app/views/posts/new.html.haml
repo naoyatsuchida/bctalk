@@ -8,7 +8,7 @@
         .new_post__top__submit
           =f.label :submit do
             %i.fas.fa-pencil-alt.icon
-            =f.submit "毒を吐く",id:"post_submit"
+            =f.submit "share",id:"post_submit"
 
       #image-box
         
@@ -35,4 +35,4 @@
             .js-remove 削除
       
       
-      =f.text_area :content, placeholder: "理不尽な体験、一人で抱え込まずシェアしよう(マークダウン形式でも記載できます)",class: 'new_post__content' ,required: true
+      =f.text_area :content, placeholder: "自分の業界、職種について(マークダウン形式でも記載できます)",class: 'new_post__content' ,required: true
