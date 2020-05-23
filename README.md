@@ -19,7 +19,8 @@ passward  : aaaaaa
 昔所属していた業界に同年代の方がとても少なかったこともあり、同じ業界で働く人の体験談や相談などができると面白いと思い作成しました。
 
 
-[![Image from Gyazo](https://i.gyazo.com/68cf964653f773c00ab47a865c651af9.jpg)](https://gyazo.com/68cf964653f773c00ab47a865c651af9)
+![share](https://user-images.githubusercontent.com/52374649/82721947-4797a180-9cfd-11ea-926f-370d73eebc96.jpg)
+
 
 ### 詳細
 ログインの有無でルートパスを変更しています。
