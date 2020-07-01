@@ -1,4 +1,4 @@
-## アプリ名　bctalk  
+## アプリ名　sharetalk  
 
 ### 使い方  
 
